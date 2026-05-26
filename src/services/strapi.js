@@ -6,18 +6,8 @@ export async function fetchFromStrapi(endpoint) {
   );
 
   if (!response.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch data from Strapi");
   }
 
   return response.json();
-}
-
-export function getImageUrl(image) {
-  if (!image?.url) return "";
-
-  if (image.url.startsWith("http")) {
-    return image.url;
-  }
-
-  return `${API_URL}${image.url}`;
 }
