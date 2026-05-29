@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --capego-primary: #34a85a;
+  --capego-secondary: #4682b4;
+  --capego-dark: #0f172a;
+  --capego-card: #111827;
+  --capego-text: #ffffff;
+}
+
+body {
+  background: var(--capego-dark);
+  color: var(--capego-text);
+  font-family: Inter, system-ui, sans-serif;
+}
