@@ -40,7 +40,7 @@ function About() {
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10">
-          <h1 className="text-4xl font-bold font-serif">Despre CapeGo</h1>
+          <h1 className="text-4xl md:text-5xl font-bold font-serif-custom text-green-400">Despre CapeGo</h1>
           <p className="mt-2 max-w-xl text-sm">
             Descoperă povestea din spatele CapeGo — o experiență de călătorie
             creată de localnici, construită pe conexiuni autentice și inspirată
@@ -51,7 +51,7 @@ function About() {
 
       {/* ── POVESTEA NOASTRĂ ── */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-2">Povestea noastră</h2>
+        <h2 className="text-3xl font-bold text-center mb-2 text-green-400">Povestea noastră</h2>
         <p className="text-center text-gray-500 mb-10 max-w-xl mx-auto text-sm">
           Creat de localnici din Cape Town, CapeGo conectează călătorii cu locuri
           autentice, povești pline de sens și aventuri de coastă de neuitat.
@@ -74,14 +74,14 @@ function About() {
 
           {/* Text dreapta */}
           <div className="md:w-1/2 bg-white rounded-2xl shadow p-8 text-center text-gray-700 leading-relaxed">
-            <p className="mb-4">
+            <p className="mb-4 font-serif-custom">
               CapeGo a fost fondat în 2018 de un grup de localnici din Cape Town
               care au crezut că cele mai frumoase experiențe de călătorie se nasc
               din conexiuni autentice. Obosiți de tururile standard, grăbite prin
               obiective turistice, ne-am propus să creăm experiențe captivante
               care dezvăluie sufletul Orașului-Mamă.
             </p>
-            <p>
+            <p className="font-serif-custom">
               De la prima noastră drumeție la apus pe Lion's Head până la miile
               de călători pe care i-am ghidat de atunci, pasiunea noastră pentru
               Cape Town a devenit tot mai puternică. Astăzi, CapeGo este ales de
@@ -114,7 +114,7 @@ function About() {
 
       {/* ── FAQ ── */}
       <section className="max-w-3xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-10">
+        <h2 className="text-3xl font-bold text-center mb-10 text-green-400">
           Întrebări frecvente
         </h2>
         <div className="flex flex-col gap-3">
@@ -124,7 +124,9 @@ function About() {
                 className="w-full flex justify-between items-center text-left text-sm font-medium py-2"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <span>{faq.question}</span>
+                <span className="font-mono-custom">
+                  {faq.question}
+                </span>
                 <span className="text-xl text-gray-400">
                   {openIndex === i ? "−" : "+"}
                 </span>

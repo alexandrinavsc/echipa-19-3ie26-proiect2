@@ -11,7 +11,7 @@ function Home() {
             Explore Cape Town
           </p>
 
-          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight">
+          <h1 className="font-bold">
             Discover unforgettable South African experiences
           </h1>
 

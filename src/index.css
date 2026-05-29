@@ -8,10 +8,53 @@
   --capego-dark: #0f172a;
   --capego-card: #111827;
   --capego-text: #ffffff;
+
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Source Serif 4", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--capego-dark);
   color: var(--capego-text);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+.font-serif-custom {
+  font-family: var(--font-serif);
+}
+
+.font-mono-custom {
+  font-family: var(--font-mono);
+}
+
+.primary-text {
+  color: var(--capego-primary);
+}
+
+.secondary-text {
+  color: var(--capego-secondary);
+}
+
+.primary-bg {
+  background-color: var(--capego-primary);
+}
+
+.secondary-bg {
+  background-color: var(--capego-secondary);
+}
+
+.card-bg {
+  background-color: var(--capego-card);
 }
