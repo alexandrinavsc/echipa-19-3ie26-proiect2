@@ -1,141 +1,178 @@
 import { useState } from "react";
 
-const slides = [
-  { title: "Coastal Joy", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" },
-  { title: "Travel Stories", img: "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600" },
-  { title: "Beach Friends", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" },
-  { title: "Mountain Views", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600" },
-  { title: "City Lights", img: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600" },
-];
+const categories = ["Toate", "Coastă", "Munți", "Oraș", "Cultură"];
 
-const galleryImages = [
-  "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=500",
-  "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=500",
-  "https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=500",
-  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500",
-  "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=500",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500",
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500",
+const photos = [
+  {
+    src: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800",
+    title: "Table Mountain la apus",
+    location: "Table Mountain, Cape Town",
+    category: "Munți",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600",
+    title: "Plaja Camps Bay",
+    location: "Camps Bay, Cape Town",
+    category: "Coastă",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
+    title: "Țărmul Atlanticului",
+    location: "Atlantic Seaboard",
+    category: "Coastă",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
+    title: "Creste montane",
+    location: "Twelve Apostles, Cape Town",
+    category: "Munți",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=600",
+    title: "Bo-Kaap",
+    location: "Bo-Kaap, Cape Town",
+    category: "Cultură",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600",
+    title: "Prieteni la aventură",
+    location: "Lion's Head Trail",
+    category: "Munți",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=600",
+    title: "Apus ocean",
+    location: "Signal Hill",
+    category: "Coastă",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600",
+    title: "Centrul vechi",
+    location: "City Bowl, Cape Town",
+    category: "Oraș",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1580575436351-e8966d0b4a87?w=800",
+    title: "Cape Point",
+    location: "Cape Point Nature Reserve",
+    category: "Coastă",
+  },
 ];
 
 function Gallery() {
-  const [current, setCurrent] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("Toate");
+  const [lightbox, setLightbox] = useState(null);
 
-  const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
-
-  const visible = [
-    slides[(current - 1 + slides.length) % slides.length],
-    slides[current],
-    slides[(current + 1) % slides.length],
-  ];
+  const filtered =
+    activeCategory === "Toate"
+      ? photos
+      : photos.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="bg-[#fdf5f0] dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300">
-      {/* ── HERO ── */}
-      <div
-        className="relative h-64 flex flex-col items-center justify-center text-white text-center px-4"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold font-serif">Galeria Cape Town</h1>
-          <p className="mt-2 text-sm max-w-xl">
-            Descoperă culorile, tărmurile și momentele de neuitat care fac din
-            Cape Town una dintre cele mai inspiraționale destinații din lume.
+    <div className="bg-black text-white min-h-screen">
+
+      {/* HERO */}
+      <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24">
+        <p className="font-mono-custom text-emerald-400 uppercase tracking-[0.25em] text-xs mb-4">
+          Vizual
+        </p>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <h1 className="text-6xl md:text-8xl font-black font-serif-custom leading-none">
+            Galerie
+          </h1>
+          <p className="text-zinc-400 max-w-sm leading-relaxed md:text-right">
+            Momente surprinse în Cape Town — de la creste montane la țărmuri atlantice și culori urbane.
           </p>
         </div>
-      </div>
+        <div className="h-px bg-zinc-800 mt-10" />
+      </section>
 
-      {/* ── SLIDER ── */}
-      <section className="max-w-4xl mx-auto px-6 py-14">
-        <h2 className="text-2xl font-bold text-center mb-1">
-          Momente împărtășite din Cape Town
-        </h2>
-        <p className="text-center text-gray-400 dark:text-gray-500 text-sm mb-8">
-          O colecție de amintiri calde, priveliști de coastă și momente colorate
-          de călătorie surprinse în Cape Town.
-        </p>
-
-        <div className="relative flex items-center gap-3">
-          <button
-            onClick={prev}
-            className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl px-2"
-          >
-            ‹
-          </button>
-
-          <div className="flex gap-3 flex-1 overflow-hidden">
-            {visible.map((slide, i) => (
-              <div
-                key={i}
-                className={`relative rounded-xl overflow-hidden flex-1 h-40 transition-all ${
-                  i === 1 ? "opacity-100 scale-105" : "opacity-60"
-                }`}
-              >
-                <img
-                  src={slide.img}
-                  alt={slide.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">
-                    {slide.title}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            onClick={next}
-            className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl px-2"
-          >
-            ›
-          </button>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-4">
-          {slides.map((_, i) => (
+      {/* FILTRE */}
+      <section className="max-w-7xl mx-auto px-6 pb-8">
+        <div className="flex flex-wrap gap-2 items-center">
+          {categories.map((cat) => (
             <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                i === current ? "bg-orange-400 w-4" : "bg-gray-300 dark:bg-gray-600"
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all font-mono-custom ${
+                activeCategory === cat
+                  ? "bg-emerald-500 text-black"
+                  : "bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-600 hover:text-white"
               }`}
-            />
+            >
+              {cat}
+            </button>
           ))}
+          <span className="ml-auto text-zinc-600 text-sm font-mono-custom">
+            {filtered.length} foto
+          </span>
         </div>
       </section>
 
-      {/* ── GRID GALERIE ── */}
-      <section className="max-w-4xl mx-auto px-6 pb-16">
-        <h2 className="text-2xl font-bold text-center mb-1">Galerie</h2>
-        <p className="text-center text-gray-400 dark:text-gray-500 text-sm mb-8">
-          Explorează câteva dintre cele mai memorabile priveliști din Cape Town.
-        </p>
+      {/* GRID */}
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+          {filtered.map((photo, i) => (
+            <div
+              key={i}
+              className="break-inside-avoid group relative overflow-hidden rounded-2xl cursor-pointer bg-zinc-900"
+              onClick={() => setLightbox(photo)}
+            >
+              <img
+                src={photo.src}
+                alt={photo.title}
+                className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <span className="font-mono-custom text-emerald-400 text-xs uppercase tracking-widest mb-1">
+                  {photo.category}
+                </span>
+                <h3 className="font-bold text-lg leading-tight">{photo.title}</h3>
+                <p className="text-zinc-400 text-sm mt-1">{photo.location}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-        <div className="grid grid-cols-3 gap-3">
-          {galleryImages.map((src, i) => (
+        {filtered.length === 0 && (
+          <p className="text-center text-zinc-600 py-20 font-mono-custom">
+            Nicio fotografie în această categorie.
+          </p>
+        )}
+      </section>
+
+      {/* LIGHTBOX */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-white text-4xl leading-none hover:text-zinc-400 transition-colors font-light"
+            onClick={() => setLightbox(null)}
+            aria-label="Închide"
+          >
+            ×
+          </button>
+          <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
             <img
-              key={i}
-              src={src}
-              alt={`Foto ${i + 1}`}
-              className={`rounded-xl object-cover w-full ${
-                i === galleryImages.length - 1 && galleryImages.length % 3 !== 0
-                  ? "col-span-3 h-52"
-                  : "h-36"
-              }`}
+              src={lightbox.src.replace("w=600", "w=1200").replace("w=800", "w=1200")}
+              alt={lightbox.title}
+              className="w-full rounded-2xl object-cover max-h-[75vh]"
             />
-          ))}
+            <div className="mt-4 flex items-start justify-between gap-4">
+              <div>
+                <h3 className="font-bold text-xl font-serif-custom">{lightbox.title}</h3>
+                <p className="text-zinc-400 text-sm mt-1">{lightbox.location}</p>
+              </div>
+              <span className="font-mono-custom text-emerald-400 text-xs uppercase tracking-widest bg-zinc-900 px-3 py-1 rounded-full shrink-0">
+                {lightbox.category}
+              </span>
+            </div>
+          </div>
         </div>
-      </section>
+      )}
+
     </div>
   );
 }

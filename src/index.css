@@ -5,21 +5,9 @@
 :root {
   --capego-primary: #34a85a;
   --capego-secondary: #4682b4;
-  --capego-dark: #0f172a;
-  --capego-card: #111827;
-  --capego-text: #ffffff;
-
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-serif: "Source Serif 4", serif;
   --font-mono: "JetBrains Mono", monospace;
-
-  --bg: #ffffff;
-  --text: #0f172a;
-}
-
-.dark {
-  --bg: #0f172a;
-  --text: #ffffff;
 }
 
 * {
@@ -33,37 +21,35 @@ html {
 }
 
 body {
-  background: var(--bg) !important;
-  color: var(--text) !important;
   font-family: var(--font-sans);
   min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
   transition: background 0.3s, color 0.3s;
 }
 
-.font-serif-custom {
-  font-family: var(--font-serif);
+html:not(.dark) body {
+  background: #f5f5f5;
+  color: #111111;
 }
 
-.font-mono-custom {
-  font-family: var(--font-mono);
-}
+html:not(.dark) .bg-black { background-color: #f5f5f5 !important; }
+html:not(.dark) .bg-zinc-950 { background-color: #ebebeb !important; }
+html:not(.dark) .bg-zinc-900 { background-color: #e0e0e0 !important; }
+html:not(.dark) .text-white { color: #111111 !important; }
+html:not(.dark) .text-zinc-400 { color: #444444 !important; }
+html:not(.dark) .text-zinc-300 { color: #333333 !important; }
+html:not(.dark) .border-zinc-800 { border-color: #cccccc !important; }
+html:not(.dark) .border-gray-800 { border-color: #cccccc !important; }
+html:not(.dark) header { background-color: #f5f5f5 !important; border-color: #dddddd !important; }
+html:not(.dark) header a { color: #111111 !important; }
+html:not(.dark) header .text-gray-300 { color: #333333 !important; }
+html:not(.dark) footer { background-color: #f5f5f5 !important; border-color: #dddddd !important; }
+html:not(.dark) footer p { color: #111111 !important; }
 
-.primary-text {
-  color: var(--capego-primary);
-}
-
-.secondary-text {
-  color: var(--capego-secondary);
-}
-
-.primary-bg {
-  background-color: var(--capego-primary);
-}
-
-.secondary-bg {
-  background-color: var(--capego-secondary);
-}
-
-.card-bg {
-  background-color: var(--capego-card);
-}
+.font-serif-custom { font-family: var(--font-serif); }
+.font-mono-custom { font-family: var(--font-mono); }
+.primary-text { color: var(--capego-primary); }
+.secondary-text { color: var(--capego-secondary); }
+.primary-bg { background-color: var(--capego-primary); }
+.secondary-bg { background-color: var(--capego-secondary); }

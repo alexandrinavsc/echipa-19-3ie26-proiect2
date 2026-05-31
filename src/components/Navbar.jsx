@@ -5,21 +5,15 @@ import { useTheme } from "../context/ThemeContext";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { theme, toggleTheme } = useTheme();
+  const { dark, setDark } = useTheme();
 
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
   const links = [
@@ -31,23 +25,20 @@ function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <header className="sticky top-0 z-50 bg-black border-b border-gray-800">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-        <Link to="/" className="text-3xl font-bold text-black dark:text-white transition-colors duration-300">
+        <Link to="/" className="text-3xl font-bold text-white">
           CapeGo
         </Link>
 
-        {/* Meniu desktop */}
-        <ul className="hidden md:flex gap-8 font-medium">
+        <ul className="hidden md:flex gap-8 text-white font-medium">
           {links.map((link) => (
             <li key={link.to}>
               <Link
                 to={link.to}
-                className={`hover:text-gray-500 dark:hover:text-gray-400 transition-colors ${
-                  location.pathname === link.to
-                    ? "text-black dark:text-white"
-                    : "text-gray-600 dark:text-gray-300"
+                className={`hover:text-gray-400 transition-colors ${
+                  location.pathname === link.to ? "text-white" : "text-gray-300"
                 }`}
               >
                 {link.label}
@@ -56,24 +47,19 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Dreapta: toggle dark mode + hamburger */}
         <div className="flex items-center gap-3">
-
-          {/* Buton Dark/Light */}
           <button
-            onClick={toggleTheme}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-black dark:hover:border-white transition-colors duration-200"
+            onClick={() => setDark(!dark)}
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors"
+            aria-label="Toggle dark mode"
           >
-            <span>{theme === "dark" ? "☀️" : "🌙"}</span>
-            <span className="hidden sm:inline">{theme === "dark" ? "Light" : "Dark"}</span>
+            {dark ? "☀️" : "🌙"}
           </button>
 
-          {/* Buton hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-black dark:text-white w-10 h-10 flex items-center justify-center focus:outline-none"
+            className="md:hidden text-white w-10 h-10 flex items-center justify-center focus:outline-none"
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isOpen}
           >
             {isOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -88,13 +74,8 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* Meniu mobil */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 border-t border-gray-200 dark:border-gray-800" : "max-h-0"
-        }`}
-      >
-        <ul className="flex flex-col px-6 py-4 gap-1 bg-white dark:bg-black">
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 border-t border-gray-800" : "max-h-0"}`}>
+        <ul className="flex flex-col px-6 py-4 gap-1 bg-black">
           {links.map((link) => (
             <li key={link.to}>
               <Link
@@ -102,8 +83,8 @@ function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block py-3 px-2 text-lg font-medium rounded-md transition-colors ${
                   location.pathname === link.to
-                    ? "text-black dark:text-white bg-gray-100 dark:bg-gray-900"
-                    : "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-900"
+                    ? "text-white bg-gray-900"
+                    : "text-gray-300 hover:text-white hover:bg-gray-900"
                 }`}
               >
                 {link.label}
