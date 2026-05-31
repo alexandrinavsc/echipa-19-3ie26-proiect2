@@ -24,7 +24,6 @@ function Gallery() {
   const prev = () => setCurrent((c) => (c === 0 ? slides.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
 
-  // Afișăm 3 slide-uri: cel anterior, cel curent, cel următor
   const visible = [
     slides[(current - 1 + slides.length) % slides.length],
     slides[current],
@@ -32,7 +31,7 @@ function Gallery() {
   ];
 
   return (
-    <div className="bg-[#fdf5f0] text-gray-800">
+    <div className="bg-[#fdf5f0] dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300">
       {/* ── HERO ── */}
       <div
         className="relative h-64 flex flex-col items-center justify-center text-white text-center px-4"
@@ -58,7 +57,7 @@ function Gallery() {
         <h2 className="text-2xl font-bold text-center mb-1">
           Momente împărtășite din Cape Town
         </h2>
-        <p className="text-center text-gray-400 text-sm mb-8">
+        <p className="text-center text-gray-400 dark:text-gray-500 text-sm mb-8">
           O colecție de amintiri calde, priveliști de coastă și momente colorate
           de călătorie surprinse în Cape Town.
         </p>
@@ -66,7 +65,7 @@ function Gallery() {
         <div className="relative flex items-center gap-3">
           <button
             onClick={prev}
-            className="text-gray-400 hover:text-gray-700 text-2xl px-2"
+            className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl px-2"
           >
             ‹
           </button>
@@ -95,7 +94,7 @@ function Gallery() {
 
           <button
             onClick={next}
-            className="text-gray-400 hover:text-gray-700 text-2xl px-2"
+            className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl px-2"
           >
             ›
           </button>
@@ -108,7 +107,7 @@ function Gallery() {
               key={i}
               onClick={() => setCurrent(i)}
               className={`w-2 h-2 rounded-full transition-all ${
-                i === current ? "bg-orange-400 w-4" : "bg-gray-300"
+                i === current ? "bg-orange-400 w-4" : "bg-gray-300 dark:bg-gray-600"
               }`}
             />
           ))}
@@ -118,7 +117,7 @@ function Gallery() {
       {/* ── GRID GALERIE ── */}
       <section className="max-w-4xl mx-auto px-6 pb-16">
         <h2 className="text-2xl font-bold text-center mb-1">Galerie</h2>
-        <p className="text-center text-gray-400 text-sm mb-8">
+        <p className="text-center text-gray-400 dark:text-gray-500 text-sm mb-8">
           Explorează câteva dintre cele mai memorabile priveliști din Cape Town.
         </p>
 

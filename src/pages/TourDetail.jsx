@@ -27,14 +27,14 @@ function TourDetail() {
 
   if (!tour) {
     return (
-      <div className="text-white p-10">
+      <div className="text-black dark:text-white p-10 transition-colors duration-300">
         Loading...
       </div>
     );
   }
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-white dark:bg-black text-black dark:text-white min-h-screen transition-colors duration-300">
 
       <img
         src={tour.cover?.url}
@@ -48,11 +48,11 @@ function TourDetail() {
           {tour.title}
         </h1>
 
-        <p className="text-zinc-400 text-xl mb-10">
+        <p className="text-zinc-500 dark:text-zinc-400 text-xl mb-10">
           {tour.description}
         </p>
 
-        <div className="text-zinc-300 leading-8 text-lg">
+        <div className="text-zinc-600 dark:text-zinc-300 leading-8 text-lg">
           {tour.blocks?.[0]?.body}
         </div>
 

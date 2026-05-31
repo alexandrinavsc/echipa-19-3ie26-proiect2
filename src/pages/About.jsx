@@ -27,7 +27,7 @@ function About() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <div className="bg-[#fdf5f0] text-gray-800">
+    <div className="bg-[#fdf5f0] dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300">
       {/* ── HERO ── */}
       <div
         className="relative h-64 flex flex-col items-center justify-center text-white text-center px-4"
@@ -52,13 +52,12 @@ function About() {
       {/* ── POVESTEA NOASTRĂ ── */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center mb-2 text-green-400">Povestea noastră</h2>
-        <p className="text-center text-gray-500 mb-10 max-w-xl mx-auto text-sm">
+        <p className="text-center text-gray-500 dark:text-gray-400 mb-10 max-w-xl mx-auto text-sm">
           Creat de localnici din Cape Town, CapeGo conectează călătorii cu locuri
           autentice, povești pline de sens și aventuri de coastă de neuitat.
         </p>
 
         <div className="flex flex-col md:flex-row gap-8 items-start">
-          {/* Imagini stânga */}
           <div className="flex flex-col gap-4 md:w-1/2">
             <img
               src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700"
@@ -72,8 +71,7 @@ function About() {
             />
           </div>
 
-          {/* Text dreapta */}
-          <div className="md:w-1/2 bg-white rounded-2xl shadow p-8 text-center text-gray-700 leading-relaxed">
+          <div className="md:w-1/2 bg-white dark:bg-gray-800 rounded-2xl shadow p-8 text-center text-gray-700 dark:text-gray-300 leading-relaxed transition-colors duration-300">
             <p className="mb-4 font-serif-custom">
               CapeGo a fost fondat în 2018 de un grup de localnici din Cape Town
               care au crezut că cele mai frumoase experiențe de călătorie se nasc
@@ -93,7 +91,7 @@ function About() {
       </section>
 
       {/* ── STATISTICI ── */}
-      <section className="bg-[#f0ebe5] py-14">
+      <section className="bg-[#f0ebe5] dark:bg-gray-900 py-14 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-10">
           {[
             { value: "2018", label: "Founded" },
@@ -103,10 +101,10 @@ function About() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center justify-center w-32 h-32 rounded-full border-4 border-teal-500 text-teal-600"
+              className="flex flex-col items-center justify-center w-32 h-32 rounded-full border-4 border-teal-500 text-teal-600 dark:text-teal-400"
             >
               <span className="text-2xl font-bold">{stat.value}</span>
-              <span className="text-xs text-gray-500 mt-1">{stat.label}</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stat.label}</span>
             </div>
           ))}
         </div>
@@ -119,7 +117,7 @@ function About() {
         </h2>
         <div className="flex flex-col gap-3">
           {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-gray-200 pb-3">
+            <div key={i} className="border-b border-gray-200 dark:border-gray-700 pb-3">
               <button
                 className="w-full flex justify-between items-center text-left text-sm font-medium py-2"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
@@ -132,7 +130,7 @@ function About() {
                 </span>
               </button>
               {openIndex === i && (
-                <p className="text-gray-500 text-sm mt-2 pb-2">{faq.answer}</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 pb-2">{faq.answer}</p>
               )}
             </div>
           ))}

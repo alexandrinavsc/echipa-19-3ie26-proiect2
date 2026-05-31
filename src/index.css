@@ -12,6 +12,14 @@
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-serif: "Source Serif 4", serif;
   --font-mono: "JetBrains Mono", monospace;
+
+  --bg: #ffffff;
+  --text: #0f172a;
+}
+
+.dark {
+  --bg: #0f172a;
+  --text: #ffffff;
 }
 
 * {
@@ -25,10 +33,11 @@ html {
 }
 
 body {
-  background: var(--capego-dark);
-  color: var(--capego-text);
+  background: var(--bg) !important;
+  color: var(--text) !important;
   font-family: var(--font-sans);
   min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
 }
 
 .font-serif-custom {
