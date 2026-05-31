@@ -1,14 +1,47 @@
+# CapeGo — Discover Cape Town
+
+CapeGo este un site de prezentare turistică pentru descoperirea tururilor, peisajelor, culturii și experiențelor de călătorie din Cape Town, Africa de Sud.
+
+---
+
+## Tehnologii folosite
+
+- **React** + **Vite**
+- **Tailwind CSS**
+- **React Router DOM**
+- **Strapi** (backend CMS pentru tururi)
+- **Netlify** (deployment)
+
+---
+
+## Structura proiectului
+
+    src/
+    ├── components/
+    │   ├── Navbar.jsx       — Navigație + dark/light mode + hamburger mobile
+    │   ├── Footer.jsx       — Footer cu 3 coloane + social links
+    │   └── TourCard.jsx     — Card pentru tururi
+    ├── context/
+    │   └── ThemeContext.jsx — Context global pentru dark/light mode
+    ├── pages/
+    │   ├── Home.jsx         — Pagina principală
+    │   ├── About.jsx        — Despre CapeGo + FAQ
+    │   ├── Tours.jsx        — Lista tururi din Strapi
+    │   ├── TourDetail.jsx   — Detalii tur
+    │   ├── Gallery.jsx      — Galerie foto + slider
+    │   └── Contact.jsx      — Formular contact
+    └── services/
+        └── strapi.js        — Conexiune API Strapi
+
 ---
 
 ## Cum rulezi proiectul
 
-```bash
-cd echipa-19-3ie26-proiect2
-npm install
-npm run dev
-```
+    cd echipa-19-3ie26-proiect2
+    npm install
+    npm run dev
 
-Deschide browserul la `http://localhost:5173`
+Deschide browserul la http://localhost:5173
 
 ---
 
@@ -28,8 +61,8 @@ Deschide browserul la `http://localhost:5173`
 ### Dark / Light Mode — Tijana
 - Buton de toggle în navbar, vizibil pe toate paginile
 - Detectează automat preferința sistemului
-- Preferința se salvează în `localStorage`
-- Implementat prin React Context API (`ThemeContext`)
+- Preferința se salvează în localStorage
+- Implementat prin React Context API (ThemeContext)
 - Tranziție smooth între teme
 
 ### Footer îmbunătățit — Tijana
@@ -55,14 +88,13 @@ Deschide browserul la `http://localhost:5173`
 - Statistici animate
 - FAQ accordion
 
-### Pagina Home — Alexandrina
-- Hero section
-- Secțiune "Why CapeGo?"
-- Linkuri către tururi
-
 ### Tururi + Strapi + Netlify — Alexandrina
 - Tours.jsx — listă tururi preluate din Strapi CMS
 - TourCard.jsx — card reutilizabil pentru fiecare tur
 - Conectare API Strapi pentru date dinamice
 - Deploy pe Netlify
-- 
+
+### Pagina Home — Alexandrina
+- Hero section
+- Secțiune "Why CapeGo?"
+- Linkuri către tururi
