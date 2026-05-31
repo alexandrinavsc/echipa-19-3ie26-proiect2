@@ -1,16 +1,68 @@
-# React + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Cum rulezi proiectul
 
-Currently, two official plugins are available:
+```bash
+cd echipa-19-3ie26-proiect2
+npm install
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Deschide browserul la `http://localhost:5173`
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Contribuții
 
-## Expanding the ESLint configuration
+| Membru | Contribuție |
+|--------|-------------|
+| **Alexandrina** | Home.jsx, Tours.jsx, TourCard.jsx, conectare Strapi, deploy Netlify |
+| **Katea** | About.jsx, Gallery.jsx |
+| **Alexia** | Contact.jsx, hamburger mobile menu în Navbar.jsx |
+| **Tijana** | Dark/Light mode, Footer improvements, README.md |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Funcționalități implementate
+
+### Dark / Light Mode — Tijana
+- Buton de toggle în navbar, vizibil pe toate paginile
+- Detectează automat preferința sistemului
+- Preferința se salvează în `localStorage`
+- Implementat prin React Context API (`ThemeContext`)
+- Tranziție smooth între teme
+
+### Footer îmbunătățit — Tijana
+- 3 coloane: Brand + Social Links, Quick Links, Contact
+- Linkuri funcționale (tel, email)
+- Orar de funcționare
+- Bottom bar cu Privacy Policy și Terms of Service
+- Responsive pe mobile
+
+### Hamburger Mobile Menu — Alexia
+- Meniu mobil animat în Navbar
+- Se închide automat la schimbarea rutei
+- Blochează scroll-ul când e deschis
+
+### Galerie foto — Katea
+- Slider cu imagini din Cape Town
+- Grid galerie responsive
+- Animații de tranziție
+
+### Pagina About — Katea
+- Secțiune hero cu imagine
+- Povestea CapeGo
+- Statistici animate
+- FAQ accordion
+
+### Pagina Home — Alexandrina
+- Hero section
+- Secțiune "Why CapeGo?"
+- Linkuri către tururi
+
+### Tururi + Strapi + Netlify — Alexandrina
+- Tours.jsx — listă tururi preluate din Strapi CMS
+- TourCard.jsx — card reutilizabil pentru fiecare tur
+- Conectare API Strapi pentru date dinamice
+- Deploy pe Netlify
+- 
