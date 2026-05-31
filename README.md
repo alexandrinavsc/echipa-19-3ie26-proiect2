@@ -50,7 +50,7 @@ Deschide browserul la http://localhost:5173
 | Membru | Contribuție |
 |--------|-------------|
 | **Alexandrina** | Home.jsx, Tours.jsx, TourCard.jsx, conectare Strapi, deploy Netlify |
-| **Katea** | About.jsx, Gallery.jsx |
+| **Ecaterina** | About.jsx, Gallery.jsx |
 | **Alexia** | Contact.jsx, hamburger mobile menu în Navbar.jsx |
 | **Tijana** | Dark/Light mode, Footer improvements, README.md |
 
@@ -58,37 +58,37 @@ Deschide browserul la http://localhost:5173
 
 ## Funcționalități implementate
 
-### Dark / Light Mode — Tijana
+### Dark / Light Mode — Tijana Subin
 - Buton de toggle în navbar, vizibil pe toate paginile
 - Detectează automat preferința sistemului
 - Preferința se salvează în localStorage
 - Implementat prin React Context API (ThemeContext)
 - Tranziție smooth între teme
 
-### Footer îmbunătățit — Tijana
+### Footer îmbunătățit — Tijana Subin
 - 3 coloane: Brand + Social Links, Quick Links, Contact
 - Linkuri funcționale (tel, email)
 - Orar de funcționare
 - Bottom bar cu Privacy Policy și Terms of Service
 - Responsive pe mobile
 
-### Hamburger Mobile Menu — Alexia
+### Hamburger Mobile Menu — Alexia Neagoe
 - Meniu mobil animat în Navbar
 - Se închide automat la schimbarea rutei
 - Blochează scroll-ul când e deschis
 
-### Galerie foto — Katea
+### Galerie foto — Ecaterina Grebincea
 - Slider cu imagini din Cape Town
 - Grid galerie responsive
 - Animații de tranziție
 
-### Pagina About — Katea
+### Pagina About — Ecaterina Grebincea
 - Secțiune hero cu imagine
 - Povestea CapeGo
 - Statistici animate
 - FAQ accordion
 
-### Tururi + Strapi + Netlify — Alexandrina
+### Tururi + Strapi + Netlify — Alexandrina Vesca
 - Tours.jsx — listă tururi preluate din Strapi CMS
 - TourCard.jsx — card reutilizabil pentru fiecare tur
 - Conectare API Strapi pentru date dinamice
