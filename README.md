@@ -94,7 +94,7 @@ Deschide browserul la http://localhost:5173
 - Conectare API Strapi pentru date dinamice
 - Deploy pe Netlify
 
-### Pagina Home — Alexandrina
+### Pagina Home — Alexandrina Vesca
 - Hero section
 - Secțiune "Why CapeGo?"
 - Linkuri către tururi
